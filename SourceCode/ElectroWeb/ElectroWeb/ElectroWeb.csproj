@@ -129,6 +129,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\assets\css\bootstrap-grid.css" />
+    <Content Include="Content\assets\css\bootstrap-grid.min.css" />
+    <Content Include="Content\assets\css\bootstrap-reboot.css" />
+    <Content Include="Content\assets\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\assets\css\bootstrap.css" />
     <Content Include="Content\assets\css\bootstrap.min.css" />
     <Content Include="Content\assets\css\font-awesome.min.css" />
     <Content Include="Content\assets\css\nouislider.min.css" />
@@ -170,6 +175,12 @@
     <Content Include="Content\assets\fonts\slick.eot" />
     <Content Include="Content\assets\fonts\slick.ttf" />
     <Content Include="Content\assets\fonts\slick.woff" />
+    <Content Include="Content\assets\css\bootstrap.css.map" />
+    <Content Include="Content\assets\css\bootstrap-grid.css.map" />
+    <Content Include="Content\assets\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\assets\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\assets\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\assets\css\bootstrap.min.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -198,6 +209,7 @@
     <Content Include="Views\Products\_Products.cshtml" />
     <Content Include="Views\Menu\_Menu.cshtml" />
     <Content Include="Views\Products\_ProductDetail.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

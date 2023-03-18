@@ -9,7 +9,7 @@ namespace ElectroWeb.Controllers
     public class ProductsController : Controller
     {
         // GET: Products
-        public ActionResult Index()
+        public ActionResult _Products()
         {
             return View();
         }
