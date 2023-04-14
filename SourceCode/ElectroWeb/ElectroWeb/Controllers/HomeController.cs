@@ -31,7 +31,14 @@ namespace ElectroWeb.Controllers
         {
             ViewBag.Message = "Login page.";
 
-            return View();
+            return View("Login");
+        }
+
+        public ActionResult Register()
+        {
+            ViewBag.Message = "Register page.";
+
+            return View("Register");
         }
     }
 }

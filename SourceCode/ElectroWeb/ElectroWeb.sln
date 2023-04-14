@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectroWeb", "ElectroWeb\ElectroWeb.csproj", "{261EF1A7-0EB1-49E3-8D6C-250BEBEBE8F0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectroWeb", "ElectroWeb\ElectroWeb.csproj", "{05D455B3-5B10-4B5B-BCF4-9C158A2D306E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{261EF1A7-0EB1-49E3-8D6C-250BEBEBE8F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{261EF1A7-0EB1-49E3-8D6C-250BEBEBE8F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{261EF1A7-0EB1-49E3-8D6C-250BEBEBE8F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{261EF1A7-0EB1-49E3-8D6C-250BEBEBE8F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05D455B3-5B10-4B5B-BCF4-9C158A2D306E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05D455B3-5B10-4B5B-BCF4-9C158A2D306E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05D455B3-5B10-4B5B-BCF4-9C158A2D306E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05D455B3-5B10-4B5B-BCF4-9C158A2D306E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {7B7F32B7-47D8-4FDB-9B43-78134A6706FF}
+		SolutionGuid = {B8F721E9-06A9-4E99-BD67-D3F97953D095}
 	EndGlobalSection
 EndGlobal

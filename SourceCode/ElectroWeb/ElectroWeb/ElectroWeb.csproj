@@ -8,7 +8,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{261EF1A7-0EB1-49E3-8D6C-250BEBEBE8F0}</ProjectGuid>
+    <ProjectGuid>{05D455B3-5B10-4B5B-BCF4-9C158A2D306E}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -18,7 +18,7 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44323</IISExpressSSLPort>
+    <IISExpressSSLPort>44336</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -123,16 +123,30 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\assets\Bootstrap4\css\bootstrap-grid.css" />
+    <Content Include="Content\assets\Bootstrap4\css\bootstrap-grid.min.css" />
+    <Content Include="Content\assets\Bootstrap4\css\bootstrap-reboot.css" />
+    <Content Include="Content\assets\Bootstrap4\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\assets\Bootstrap4\css\bootstrap.css" />
+    <Content Include="Content\assets\Bootstrap4\css\bootstrap.min.css" />
+    <Content Include="Content\assets\Bootstrap4\js\bootstrap.bundle.js" />
+    <Content Include="Content\assets\Bootstrap4\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\assets\Bootstrap4\js\bootstrap.js" />
+    <Content Include="Content\assets\Bootstrap4\js\bootstrap.min.js" />
     <Content Include="Content\assets\css\bootstrap-grid.css" />
     <Content Include="Content\assets\css\bootstrap-grid.min.css" />
     <Content Include="Content\assets\css\bootstrap-reboot.css" />
     <Content Include="Content\assets\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\assets\css\bootstrap-theme.css" />
+    <Content Include="Content\assets\css\bootstrap-theme.min.css" />
     <Content Include="Content\assets\css\bootstrap.css" />
     <Content Include="Content\assets\css\bootstrap.min.css" />
     <Content Include="Content\assets\css\font-awesome.min.css" />
@@ -143,7 +157,14 @@
     <Content Include="Content\assets\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\assets\fonts\slick.svg" />
     <Content Include="Content\assets\img\hotdeal.png" />
+    <Content Include="Content\assets\img\loginLogo.png" />
     <Content Include="Content\assets\img\logo.png" />
+    <Content Include="Content\assets\img\logo1.png" />
+    <Content Include="Content\assets\img\logo2.png" />
+    <Content Include="Content\assets\img\logo3.jpg" />
+    <Content Include="Content\assets\img\logo4.jpg" />
+    <Content Include="Content\assets\img\logo5.jpg" />
+    <Content Include="Content\assets\img\logo5.png" />
     <Content Include="Content\assets\img\product01.png" />
     <Content Include="Content\assets\img\product02.png" />
     <Content Include="Content\assets\img\product03.png" />
@@ -156,15 +177,23 @@
     <Content Include="Content\assets\img\shop01.png" />
     <Content Include="Content\assets\img\shop02.png" />
     <Content Include="Content\assets\img\shop03.png" />
+    <Content Include="Content\assets\js\bootstrap.bundle.js" />
+    <Content Include="Content\assets\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\assets\js\bootstrap.js" />
     <Content Include="Content\assets\js\bootstrap.min.js" />
     <Content Include="Content\assets\js\jquery.min.js" />
     <Content Include="Content\assets\js\jquery.zoom.min.js" />
     <Content Include="Content\assets\js\main.js" />
     <Content Include="Content\assets\js\nouislider.min.js" />
     <Content Include="Content\assets\js\slick.min.js" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\assets\fonts\fontawesome-webfont.eot" />
@@ -175,12 +204,27 @@
     <Content Include="Content\assets\fonts\slick.eot" />
     <Content Include="Content\assets\fonts\slick.ttf" />
     <Content Include="Content\assets\fonts\slick.woff" />
-    <Content Include="Content\assets\css\bootstrap.css.map" />
     <Content Include="Content\assets\css\bootstrap-grid.css.map" />
     <Content Include="Content\assets\css\bootstrap-grid.min.css.map" />
     <Content Include="Content\assets\css\bootstrap-reboot.css.map" />
     <Content Include="Content\assets\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\assets\css\bootstrap.css.map" />
     <Content Include="Content\assets\css\bootstrap.min.css.map" />
+    <Content Include="Content\assets\js\bootstrap.bundle.js.map" />
+    <Content Include="Content\assets\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Content\assets\js\bootstrap.js.map" />
+    <Content Include="Content\assets\js\bootstrap.min.js.map" />
+    <Content Include="Content\assets\Bootstrap4\css\bootstrap-grid.css.map" />
+    <Content Include="Content\assets\Bootstrap4\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\assets\Bootstrap4\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\assets\Bootstrap4\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\assets\Bootstrap4\css\bootstrap.css.map" />
+    <Content Include="Content\assets\Bootstrap4\css\bootstrap.min.css.map" />
+    <Content Include="Content\assets\Bootstrap4\js\bootstrap.bundle.js.map" />
+    <Content Include="Content\assets\Bootstrap4\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Content\assets\Bootstrap4\js\bootstrap.js.map" />
+    <Content Include="Content\assets\Bootstrap4\js\bootstrap.min.js.map" />
+    <Compile Include="Models\Product.cs" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -206,20 +250,25 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Products\_Products.cshtml" />
-    <Content Include="Views\Menu\_Menu.cshtml" />
-    <Content Include="Views\Products\_ProductDetail.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Products\_ProductDetail.cshtml" />
+    <Content Include="Views\Users\CheckOut.cshtml" />
+    <Content Include="Views\Products\_ListLaptop.cshtml" />
+    <Content Include="Views\Menu\Catagory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
@@ -240,9 +289,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>50100</DevelopmentServerPort>
+          <DevelopmentServerPort>64665</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44323/</IISUrl>
+          <IISUrl>https://localhost:44336/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
