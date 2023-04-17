@@ -26,19 +26,5 @@ namespace ElectroWeb.Controllers
 
             return View();
         }
-
-        public ActionResult Login()
-        {
-            ViewBag.Message = "Login page.";
-
-            return View("Login");
-        }
-
-        public ActionResult Register()
-        {
-            ViewBag.Message = "Register page.";
-
-            return View("Register");
-        }
     }
 }

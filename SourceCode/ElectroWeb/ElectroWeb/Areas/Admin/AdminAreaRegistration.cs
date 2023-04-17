@@ -1,23 +1,24 @@
 ﻿using System.Web.Mvc;
 
-namespace ElectroWeb.Areas.Admin
+namespace ElectroWeb.Areas.admin
 {
-    public class AdminAreaRegistration : AreaRegistration 
+    public class adminAreaRegistration : AreaRegistration 
     {
         public override string AreaName 
         {
             get 
             {
-                return "Admin";
+                return "admin";
             }
         }
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                "Admin_default",
-                "Admin/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                "admin_default",
+                "admin/{controller}/{action}/{id}",
+                new { action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "ElectroWeb.Areas.admin.Controllers" }
             );
         }
     }

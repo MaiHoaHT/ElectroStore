@@ -4,11 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace ElectroWeb.Areas.Admin.Controllers
+namespace ElectroWeb.Areas.admin.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Admin/Home
+        // GET: admin/Home
         public ActionResult Index()
         {
             return View();
