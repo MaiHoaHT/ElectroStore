@@ -11,10 +11,8 @@ namespace ElectroWeb.Models.EntityFramework
     public class OrderDetail
     {
         [Key]
-        [Column(Order = 0)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int OrderID { get; set; }
-        [Key]
-        [Column(Order = 1)]
         public int ProductID { get; set; }
         public decimal Price { get; set; }
         public int Quantity { get; set; }

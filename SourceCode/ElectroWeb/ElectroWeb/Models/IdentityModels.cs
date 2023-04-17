@@ -22,7 +22,7 @@ namespace ElectroWeb.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("ElectroStoreDBContext", throwIfV1Schema: false)
         {
         }
 
@@ -37,6 +37,7 @@ namespace ElectroWeb.Models
 
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Subcribe> Subcribes { get; set; }
+        public DbSet<SystemSetting> SystemSettings { get; set }
 
         public static ApplicationDbContext Create()
         {
