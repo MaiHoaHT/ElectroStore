@@ -214,6 +214,16 @@
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
+                "dbo.system_setting",
+                c => new
+                    {
+                        SettingKey = c.String(nullable: false, maxLength: 50),
+                        SettingValue = c.String(maxLength: 4000),
+                        SettingDescription = c.String(maxLength: 4000),
+                    })
+                .PrimaryKey(t => t.SettingKey);
+            
+            CreateTable(
                 "dbo.AspNetUsers",
                 c => new
                     {
@@ -285,6 +295,7 @@
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
+            DropTable("dbo.system_setting");
             DropTable("dbo.subcribe");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");

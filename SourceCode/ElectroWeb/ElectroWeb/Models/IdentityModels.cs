@@ -26,7 +26,7 @@ namespace ElectroWeb.Models
         {
         }
 
-        public DbSet<Menu> Categories { get; set; }
+        public DbSet<Menu> Menus { get; set; }
         public DbSet<Adv> Advs { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<News> News { get; set; }
@@ -37,7 +37,7 @@ namespace ElectroWeb.Models
 
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Subcribe> Subcribes { get; set; }
-        public DbSet<SystemSetting> SystemSettings { get; set }
+        public DbSet<SystemSetting> SystemSettings { get; set; }
 
         public static ApplicationDbContext Create()
         {
