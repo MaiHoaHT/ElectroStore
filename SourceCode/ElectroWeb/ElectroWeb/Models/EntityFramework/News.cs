@@ -13,9 +13,9 @@ namespace ElectroWeb.Models.EntityFramework
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Vui lòng nhập tiêu đề tin")]
         [StringLength(150)]
-        public string Ttile { get; set; }
+        public string Title { get; set; }
         public string Alias { get; set; }
         public int MenuID { get; set; }
         public string Description { get; set; }
