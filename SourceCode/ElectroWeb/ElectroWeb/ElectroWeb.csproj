@@ -183,6 +183,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Common\FomatPath.cs" />
     <Compile Include="Models\EntityFramework\Adv.cs" />
     <Compile Include="Models\EntityFramework\Contact.cs" />
     <Compile Include="Models\EntityFramework\GeneralDataAbstract.cs" />
@@ -2273,6 +2274,7 @@
     <Content Include="Areas\admin\Views\Shared\_Partial_SideBar.cshtml" />
     <Content Include="Areas\admin\Views\Menu\Index.cshtml" />
     <Content Include="Areas\admin\Views\Menu\Add.cshtml" />
+    <Content Include="Areas\admin\Views\Menu\Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

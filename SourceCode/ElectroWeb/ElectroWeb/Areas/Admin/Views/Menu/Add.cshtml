@@ -52,7 +52,7 @@
                         @using (Html.BeginForm("Add", "Menu", FormMethod.Post, new { }))
                         {
                             @Html.AntiForgeryToken()
-                            @Html.ValidationSummary(false)
+                            @Html.ValidationSummary(true)
                         <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Tên menu</label>
@@ -78,15 +78,15 @@
                                 @Html.TextBoxFor(x => x.Position, new { @class = "form-control", @Value = "1" })
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Seo title</label>
+                                <label for="exampleInputPassword1">Seo Title</label>
                                 @Html.TextAreaFor(x => x.SeoTitle, new { @class = "form-control" })
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">SeoDescription</label>
+                                <label for="exampleInputPassword1">Seo Description</label>
                                 @Html.TextAreaFor(x => x.SeoDescription, new { @class = "form-control" })
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">SeoKeywords</label>
+                                <label for="exampleInputPassword1">Seo Keywords</label>
                                 @Html.TextAreaFor(x => x.SeoKeywords, new { @class = "form-control" })
                             </div>
                             <div class="form-group">

@@ -54,23 +54,35 @@
                             <th>STT</th>
                             <th>Tên danh mục menu</th>
                             <th>Thứ tự</th>
+                            <th>Hành động</th>
                         </tr>
                     </thead>
                     <tbody>
                         @if (Model != null && Model.Any())
                         {
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                         }else{
+                            var i = 1;
+                            foreach (var item in Model)
+                            {
+                                <tr id="row_@item.Id">
+                                    <td>@i</td>
+                                    <td>@item.Title</td>
+                                    <td>@item.Position</td>
+                                    <td>
+                                        <a href="/admin/menu/edit/@item.Id" class="btn btn-sm btn-primary">Sửa</a>
+                                        <a href="#" data-id="@item.Id" class="btn btn-sm btn-danger delete">Xóa</a>
+                                    </td>
+                                </tr>
+                                i++;
+                            }
+
+                        }
+                        else
+                        {
                             <tr>
                                 <td colspan="4">Không có dữ liệu hiển thị.</td>
                             </tr>
-                         }
-                        </tbody>
+                        }
+                    </tbody>
                 </table>
 
         </div>
@@ -78,4 +90,26 @@
     <!-- /.card -->
 
 </section>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('body').on('click', '.delete', function () {
+                var id = $(this).data("id");
+                var conf = confirm('Bạn chắc chắn có muốn xóa không?');
+                if (conf == true) {
+                    $.ajax({
+                        url: '/admin/menu/delete',
+                        type: 'POST',
+                        data: { id: id },
+                        success: function (res) {
+                            if (res.success) {
+                                $('#row_' + id).remove();
+                            }
+                        }
+                    });
+                }
+            });
+        })
+    </script>
+}
 <!-- /.content -->
