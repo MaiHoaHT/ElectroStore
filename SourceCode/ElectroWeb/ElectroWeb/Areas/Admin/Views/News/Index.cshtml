@@ -1,4 +1,6 @@
-﻿@model IEnumerable<ElectroWeb.Models.EntityFramework.News>
+﻿@model PagedList.PagedList<ElectroWeb.Models.EntityFramework.News>
+@using PagedList.Mvc;
+@using PagedList;
 @{
     ViewBag.Title = "Quản lý tin tức";
     Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
@@ -26,7 +28,7 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/admin/Home">Home</a></li>
                     <li class="breadcrumb-item active">@ViewBag.Title</li>
                 </ol>
             </div>
@@ -41,37 +43,57 @@
     <div class="card">
         <div class="card-header">
             <h3 style="text-align:center">Danh sách các tin</h3>
-
             <div class="card-tools">
-                <a href="/admin/news/add" class="btn btn-primary">Thêm</a>
+                <a href="/admin/news/add" class="btn btn-success">Thêm</a>
+                <a href="#" class="btn btn-danger" id="deleteMultiplies">Xóa tất cả</a>
             </div>
         </div>
         <div class="card-body">
-
+            <div class="row">
+                <div class="col-12">
+                    @using (Html.BeginForm("index", "News", FormMethod.Get, new { }))
+                    {
+                        <div class="input-group input-group-sm">
+                            @Html.TextBox("search", null, new { @class = "form-control", @placeholder = "Tìm kiếm tin tức" })
+                            <span class="input-group-append">
+                                <button type="submit" class="btn btn-info btn-flat">Tìm kiếm</button>
+                            </span>
+                        </div>
+                    }
+                </div>
+            </div>
             <table class="table table-hover">
                 <thead>
                     <tr>
+                        <th><input type="checkbox" id="SelectAll" /></th>
                         <th>STT</th>
                         <th>Hình ảnh</th>
                         <th>Tiêu đề</th>
                         <th>Ngày tạo</th>
-                        
+                        <th>Hiển thị</th>
+                        <th>Hành động</th>
                     </tr>
                 </thead>
                 <tbody>
                     @if (Model != null && Model.Any())
                     {
-                        var i = 1;
+                        var i = ((ViewBag.Page - 1) * ViewBag.PageSize) + 1;
                         foreach (var item in Model)
                         {
+                            var strCheck = item.IsActive ? "<i class='fa fa-check text-success'></i>" : "<i class='fas fa-times text-danger'></i>";
                             <tr id="row_@item.Id">
+                                <td><input type="checkbox" class="cbkItem" value="@item.Id" /></td>
                                 <td>@i</td>
-                                <td>@item.Image</td>
+                                <td><img src="@item.Image" width="50" /></td>
                                 <td>@item.Title</td>
-                                <td>@item.CreateDate.ToString("dd/mm/yyyy")</td>
+
+                                <td>@item.CreateDate.ToString("dd/MM/yyyy")</td>
+                                <td class="text-center">
+                                    <a href='#' data-id="@item.Id" class="activeMode">@Html.Raw(strCheck)</a>
+                                </td>
                                 <td>
-                                    <a href="/admin/news/edit/@item.Id" class="btn btn-sm btn-primary">Sửa</a>
-                                    <a href="#" data-id="@item.Id" class="btn btn-sm btn-danger delete">Xóa</a>
+                                    <a href="/admin/news/edit/@item.Id" class="btn btn-sm btn-outline-primary">Sửa</a>
+                                    <a href="#" data-id="@item.Id" class="btn btn-sm btn-outline-danger delete">Xóa</a>
                                 </td>
                             </tr>
                             i++;
@@ -86,7 +108,7 @@
                     }
                 </tbody>
             </table>
-
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
         </div>
     </div>
     <!-- /.card -->
@@ -95,6 +117,55 @@
 @section scripts{
     <script>
         $(document).ready(function () {
+            // ajax delete multiple news at once
+            $('body').on('click', '#deleteMultiplies', function (e) {
+                e.preventDefault();
+                var str = "";
+                var checkbox = $(this).parents('.card').find('tr td input:checkbox');
+                var i = 0;
+                checkbox.each(function () {
+                    if (this.checked) {
+                        var _id = $(this).val();
+                        if (i === 0) {
+                            str += _id;
+                        } else {
+                            str += "," + _id;
+                        }
+                        i++;
+                    } else {
+                        checkbox.attr('selected', '');
+                    }
+                });
+                if (str.length > 0) {
+                    var conf = confirm('Bạn có chắc muốn xóa các bản ghi này hay không?');
+                    if (conf === true) {
+                        $.ajax({
+                            url: '/admin/news/deleteAll',
+                            type: 'POST',
+                            data: { ids: str },
+                            success: function (rs) {
+                                if (rs.success) {
+                                    location.reload();
+                                }
+                            }
+                        });
+                    }
+                }
+            });
+            // select news
+            $('body').on('change', '#SelectAll', function () {
+                var checkStatus = this.checked;
+                var checkbox = $(this).parents('.card-body').find('tr td input:checkbox');
+                checkbox.each(function () {
+                    this.checked = checkStatus;
+                    if (this.checked) {
+                        checkbox.attr('selected', 'checked');
+                    } else {
+                        checkbox.attr('selected', '');
+                    }
+                });
+            });
+            // ajax delete a news
             $('body').on('click', '.delete', function () {
                 var id = $(this).data("id");
                 var conf = confirm('Bạn chắc chắn có muốn xóa không?');
@@ -112,6 +183,27 @@
                 }
             });
         })
+        // ajax active show news
+        $('body').on('click', '.activeMode', function (e) {
+            e.preventDefault();
+            var btn = $(this);
+            var id = btn.data("id");
+            $.ajax({
+                url: '/admin/news/IsActive',
+                type: 'POST',
+                data: { id: id },
+                success: function (rs) {
+                    if (rs.success) {
+                        if (rs.isActive) {
+                            btn.html("<i class='fa fa-check text-success'></i>");
+                        } else {
+                            btn.html("<i class='fas fa-times text-danger'></i>");
+                        }
+                    }
+
+                }
+            });
+        });
     </script>
 }
 <!-- /.content -->

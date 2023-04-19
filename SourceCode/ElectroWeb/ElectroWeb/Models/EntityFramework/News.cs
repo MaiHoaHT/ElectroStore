@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace ElectroWeb.Models.EntityFramework
 {
@@ -19,8 +20,10 @@ namespace ElectroWeb.Models.EntityFramework
         public string Alias { get; set; }
         public int MenuID { get; set; }
         public string Description { get; set; }
+        [AllowHtml]
         public string Detail { get; set; }
         public string Image { get; set; }
+        public bool IsActive { get; set; }
         public string SeoTitle { get; set; }
         public string SeoDescription { get; set; }
         public string SeoKeywords { get; set; }

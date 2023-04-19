@@ -216,3 +216,9 @@ D:\.NetTech\CuoiKy\ElectroStore\SourceCode\ElectroStore\SourceCode\ElectroWeb\El
 D:\.NetTech\CuoiKy\ElectroStore\SourceCode\ElectroStore\SourceCode\ElectroWeb\ElectroWeb\obj\Debug\ElectroWeb.pdb
 D:\.NetTech\CuoiKy\ElectroStore\SourceCode\ElectroStore\SourceCode\ElectroWeb\ElectroWeb\obj\Debug\ElectroWeb.Migrations.CreateDatabase.resources
 D:\.NetTech\CuoiKy\ElectroStore\SourceCode\ElectroStore\SourceCode\ElectroWeb\ElectroWeb\obj\Debug\ElectroWeb.csproj.GenerateResource.cache
+D:\.NetTech\CuoiKy\ElectroStore\SourceCode\ElectroStore\SourceCode\ElectroWeb\ElectroWeb\bin\CKFinder.dll
+D:\.NetTech\CuoiKy\ElectroStore\SourceCode\ElectroStore\SourceCode\ElectroWeb\ElectroWeb\bin\CKFinder.pdb
+D:\.NetTech\CuoiKy\ElectroStore\SourceCode\ElectroStore\SourceCode\ElectroWeb\ElectroWeb\bin\PagedList.dll
+D:\.NetTech\CuoiKy\ElectroStore\SourceCode\ElectroStore\SourceCode\ElectroWeb\ElectroWeb\bin\PagedList.Mvc.dll
+D:\.NetTech\CuoiKy\ElectroStore\SourceCode\ElectroStore\SourceCode\ElectroWeb\ElectroWeb\bin\PagedList.xml
+D:\.NetTech\CuoiKy\ElectroStore\SourceCode\ElectroStore\SourceCode\ElectroWeb\ElectroWeb\bin\PagedList.Mvc.xml

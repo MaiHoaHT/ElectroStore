@@ -79,5 +79,21 @@ namespace ElectroWeb.Areas.admin.Controllers
 
             return Json(new { success = false });
         }
+
+        // Active Menu
+        [HttpPost]
+        public ActionResult IsActive(int id)
+        {
+            var item = dbContext.Menus.Find(id);
+            if (item != null)
+            {
+                item.IsActive = !item.IsActive;
+                dbContext.Entry(item).State = System.Data.Entity.EntityState.Modified;
+                dbContext.SaveChanges();
+                return Json(new { success = true, isActive = item.IsActive });
+            }
+
+            return Json(new { success = false });
+        }
     }
 }

@@ -29,6 +29,7 @@ namespace ElectroWeb.Models.EntityFramework
 
         public string Description { get; set; }
         public int Position { get; set; }
+        public bool IsActive { get; set; }
 
         [StringLength(150)]
         public string SeoTitle { get; set; }
