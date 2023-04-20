@@ -16,6 +16,7 @@ namespace ElectroWeb.Models.EntityFramework
         public int ProductID { get; set; }
         public string Image { get; set; }
         public bool IsDefault { get; set; }
-            
+        public virtual Product Product { get; set; }
+
     }
 }

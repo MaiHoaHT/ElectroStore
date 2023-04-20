@@ -23,6 +23,7 @@ namespace ElectroWeb.Models.EntityFramework
         [StringLength(500)]
         public string Image { get; set; }
         public int Type { get; set; }
+        public string Alias { get; set; }
         public string Link { get; set; }
     }
 }

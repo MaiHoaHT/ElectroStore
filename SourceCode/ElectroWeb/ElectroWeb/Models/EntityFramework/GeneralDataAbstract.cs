@@ -9,11 +9,6 @@ namespace ElectroWeb.Models.EntityFramework
     public abstract class GeneralDataAbstract
     {
         public DateTime CreateDate { get; set; }
-
-        public string CreatedBy { get; set; }
-
         public DateTime ModifierDate { get; set; }
-
-        public string ModifierBy { get; set; }
     }
 }
