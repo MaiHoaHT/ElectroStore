@@ -25,10 +25,11 @@ namespace ElectroWeb.Areas.admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Add(Post model)
         {
+
             if (ModelState.IsValid)
             {
                 model.CreateDate = DateTime.Now;
-                model.MenuID = 8;
+                model.MenuID = 9;
                 model.ModifierDate = DateTime.Now;
                 model.Alias = ElectroWeb.Models.Common.FomatPath.FilterChar(model.Title);
                 dbContext.Posts.Add(model);
