@@ -1,0 +1,27 @@
+﻿@model IEnumerable<ElectroWeb.Models.EntityFramework.Product>
+
+@if (Model != null && Model.Any())
+{
+    foreach (var item in Model)
+    {
+        var strImage = "";
+        var img = item.ProductImage.FirstOrDefault(x => x.IsDefault);
+        if (img != null)
+        {
+            strImage = img.Image;
+        }
+        <!-- product widget -->
+        <div class="product-widget">
+            <div class="product-img">
+                <img src="@strImage" alt="">
+            </div>
+            <div class="product-body">
+                <p class="product-category">@item.ProductCategory.Title</p>
+                <h3 class="product-name"><a href="#">@item.Name</a></h3>
+                <h4 class="product-price">
+                    @ElectroWeb.Models.Common.FomatPath.FormatNumber(item.PriceSale, 0) <del class="product-old-price">@ElectroWeb.Models.Common.FomatPath.FormatNumber(item.Price, 0)</del>
+                </h4>
+            </div>
+        </div>
+    }
+}

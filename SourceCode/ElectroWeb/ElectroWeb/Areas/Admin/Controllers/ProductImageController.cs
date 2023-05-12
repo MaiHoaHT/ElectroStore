@@ -53,9 +53,13 @@ namespace ElectroWeb.Areas.admin.Controllers
         [HttpPost]
         public ActionResult DefaultImage(int id)
         {
+            // ProductImage table
             var item = dbContext.ProductImages;
+            // get Image click to set main image
             var itemClick = item.Find(id);
-            var oldDefault = item.Where(e => e.IsDefault == true).ToList();
+            // get product id of default image
+            var productID = itemClick.ProductID;
+            var oldDefault = item.Where(e => e.ProductID == productID && e.IsDefault == true).ToList();
             if (itemClick != null)
             {
                 oldDefault.ForEach(e => e.IsDefault = false);

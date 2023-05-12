@@ -55,6 +55,7 @@ namespace ElectroWeb.Areas.admin.Controllers
                 dbContext.Entry(model).Property(x => x.Title).IsModified = true;
                 dbContext.Entry(model).Property(x => x.Description).IsModified = true;
                 dbContext.Entry(model).Property(x => x.Alias).IsModified = true;
+                dbContext.Entry(model).Property(x => x.Link).IsModified = true;
                 dbContext.Entry(model).Property(x => x.SeoTitle).IsModified = true;
                 dbContext.Entry(model).Property(x => x.SeoDescription).IsModified = true;
                 dbContext.Entry(model).Property(x => x.SeoKeywords).IsModified = true;

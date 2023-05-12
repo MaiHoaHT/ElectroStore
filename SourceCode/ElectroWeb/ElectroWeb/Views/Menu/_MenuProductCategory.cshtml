@@ -1,0 +1,30 @@
+﻿@model IEnumerable<ElectroWeb.Models.EntityFramework.ProductCategory>
+
+@if (Model != null && Model.Any())
+{
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-3 col-xs-6">
+                        <div class="shop">
+                            <div class="shop-img">
+                                <img src="@item.Banner" alt="">
+                            </div>
+                            <div class="shop-body">
+                                <h3>Bộ sưu tập <br>@item.Title</h3>
+                                <a href="@item.Alias" class="cta-btn">Mua ngay <i class="fa fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /SECTION -->
+}
