@@ -43,6 +43,18 @@ namespace ElectroWeb
                 namespaces: new[] { "ElectroWeb.Controllers" }
             );
             routes.MapRoute(
+                name: "News",
+                url: "tin-tuc",
+                defaults: new { controller = "News", action = "Index", alias = UrlParameter.Optional },
+                namespaces: new[] { "ElectroWeb.Controllers" }
+            );
+            routes.MapRoute(
+                name: "Post",
+                url: "bai-viet",
+                defaults: new { controller = "Post", action = "Index", alias = UrlParameter.Optional },
+                namespaces: new[] { "ElectroWeb.Controllers" }
+            );
+            routes.MapRoute(
                  name: "Cart",
                  url: "gio-hang",
                  defaults: new { controller = "Cart", action = "Index", alias = UrlParameter.Optional },

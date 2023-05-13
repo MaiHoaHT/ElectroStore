@@ -1,6 +1,9 @@
 ﻿using ElectroWeb.Models;
+using ElectroWeb.Models.Common;
+using ElectroWeb.Models.EntityFramework;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.Linq;
 using System.Web;
@@ -128,6 +131,7 @@ namespace ElectroWeb.Controllers
             return Json(new { Success = false });
         }
         // Check out page
+
         public ActionResult CheckOut()
         {
             Cart cart = (Cart)Session["Cart"];
@@ -136,6 +140,90 @@ namespace ElectroWeb.Controllers
                 ViewBag.CheckCart = cart;
             }
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CheckOut(OrderInfoViewModel req)
+        {
+            var code = new { Success = false, Code = -1, Url = "" };
+            if (ModelState.IsValid)
+            {
+                Cart cart = (Cart)Session["Cart"];
+                if (cart != null)
+                {
+                    Order order = new Order();
+                    order.CustomerName = req.CustomerName;
+                    order.Phone = req.Phone;
+                    order.Address = req.Address;
+                    order.Email = req.Email;
+                    order.Status = 1;//chưa thanh toán / 2/đã thanh toán, 3/Hoàn thành, 4/hủy
+                    cart.Items.ForEach(x => order.OrderDetails.Add(new OrderDetail
+                    {
+                        ProductID = x.ProductId,
+                        Quantity = x.Quantity,
+                        Price = x.Price
+                    }));
+                    order.TotalAmount = cart.Items.Sum(x => (x.Price * x.Quantity));
+                    order.Payment = req.Payment;
+                    order.CreateDate = DateTime.Now;
+                    order.ModifierDate = DateTime.Now;
+                    Random rd = new Random();
+                    order.CodeOrder = "DH" + rd.Next(0, 9) + rd.Next(0, 9) + rd.Next(0, 9) + rd.Next(0, 9);
+                    //order.E = req.CustomerName;
+                    dbContext.Orders.Add(order);
+                    dbContext.SaveChanges();
+                    //send email for customer
+                    //var strSanPham = "";
+                    //var thanhtien = decimal.Zero;
+                    //var TongTien = decimal.Zero;
+                    //foreach (var sp in cart.Items)
+                    //{
+                    //    strSanPham += "<tr>";
+                    //    strSanPham += "<td>" + sp.ProductName + "</td>";
+                    //    strSanPham += "<td>" + sp.Quantity + "</td>";
+                    //    strSanPham += "<td>" + FomatPath.FormatNumber(sp.TotalPrice, 0) + "</td>";
+                    //    strSanPham += "</tr>";
+                    //    thanhtien += sp.Price * sp.Quantity;
+                    //}
+                    //TongTien = thanhtien;
+                    //string contentCustomer = System.IO.File.ReadAllText(Server.MapPath("~/Content/templates/send2.html"));
+                    //contentCustomer = contentCustomer.Replace("{{MaDon}}", order.CodeOrder);
+                    //contentCustomer = contentCustomer.Replace("{{SanPham}}", strSanPham);
+                    //contentCustomer = contentCustomer.Replace("{{NgayDat}}", DateTime.Now.ToString("dd/MM/yyyy"));
+                    //contentCustomer = contentCustomer.Replace("{{TenKhachHang}}", order.CustomerName);
+                    //contentCustomer = contentCustomer.Replace("{{Phone}}", order.Phone);
+                    //contentCustomer = contentCustomer.Replace("{{Email}}", req.Email);
+                    //contentCustomer = contentCustomer.Replace("{{DiaChiNhanHang}}", order.Address);
+                    //contentCustomer = contentCustomer.Replace("{{ThanhTien}}", ElectroWeb.Models.Common.FomatPath.FormatNumber(thanhtien, 0));
+                    //contentCustomer = contentCustomer.Replace("{{TongTien}}", FomatPath.FormatNumber(TongTien, 0));
+                    //SendContact.SendMail("Electro Store", "Đơn hàng #" + order.CodeOrder, contentCustomer.ToString(), req.Email);
+
+                    //string contentAdmin = System.IO.File.ReadAllText(Server.MapPath("~/Content/templates/send1.html"));
+                    //contentAdmin = contentAdmin.Replace("{{MaDon}}", order.CodeOrder);
+                    //contentAdmin = contentAdmin.Replace("{{SanPham}}", strSanPham);
+                    //contentAdmin = contentAdmin.Replace("{{NgayDat}}", DateTime.Now.ToString("dd/MM/yyyy"));
+                    //contentAdmin = contentAdmin.Replace("{{TenKhachHang}}", order.CustomerName);
+                    //contentAdmin = contentAdmin.Replace("{{Phone}}", order.Phone);
+                    //contentAdmin = contentAdmin.Replace("{{Email}}", req.Email);
+                    //contentAdmin = contentAdmin.Replace("{{DiaChiNhanHang}}", order.Address);
+                    //contentAdmin = contentAdmin.Replace("{{ThanhTien}}", FomatPath.FormatNumber(thanhtien, 0));
+                    //contentAdmin = contentAdmin.Replace("{{TongTien}}", FomatPath.FormatNumber(TongTien, 0));
+                    //SendContact.SendMail("ShopOnline", "Đơn hàng mới #" + order.CodeOrder, contentAdmin.ToString(), ConfigurationManager.AppSettings["EmailAdmin"]);
+                    cart.ClearCart();
+                    code = new { Success = true, Code = req.Payment, Url = "" };
+                    //var url = "";
+                    //if (req.Payment == 2)
+                    //{
+                    //    var url = UrlPayment(req.TypePaymentVN, order.Code);
+                    //    code = new { Success = true, Code = req.TypePayment, Url = url };
+                    //}
+
+                    //code = new { Success = true, Code = 1, Url = url };
+                    return RedirectToAction("CheckOutSuccess");
+                }
+            }
+            return Json(code);
         }
         // Show Cart Items - Cart Page
         public ActionResult Show_Checkout_Items()
@@ -146,6 +234,15 @@ namespace ElectroWeb.Controllers
                 return PartialView(cart.Items);
             }
             return PartialView();
+        }
+        // Customer information form order
+        public ActionResult Checkout_OrderInfor()
+        {
+            return PartialView();
+        }
+        public ActionResult CheckOutSuccess()
+        {
+            return View();
         }
     }
 }

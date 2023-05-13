@@ -1,0 +1,123 @@
+﻿@using (Ajax.BeginForm("CheckOut", "Cart", new AjaxOptions
+{
+    HttpMethod = "POST",
+    UpdateTargetId = "load_data",
+    OnSuccess = "OnSuccessCO",
+    OnFailure = "OnFailure",
+    OnBegin = "OnBeginCO"
+
+}, new { @Id = "myForm" }))
+{
+    <script>
+        function OnBeginCO() {
+            $('#btnCheckOut').attr("disabled", "disabled");
+            $('#load_send').html('<h2>Đang gửi....</h2>');
+        }
+        debugger;
+        function OnSuccessCO(res) {
+            debugger;
+            if (res.Success) {
+                if (res.Code == 1) {
+                    location.href = "/Cart/CheckOutSuccess";
+                }
+                else {
+                    location.href = res.Url;
+                }
+            }
+        }
+            //function OnFailure() {
+
+            //}
+    </script>
+    @Html.AntiForgeryToken()
+    <!-- Billing Details -->
+    <div class="billing-details">
+        <div class="section-title">
+            <h3 class="title">Thông tin khách hàng</h3>
+        </div>
+        <div class="form-group">
+            <input class="input" type="text" name="CustomerName" placeholder="Họ và tên">
+        </div>
+        <div class="form-group">
+            <input class="input" type="email" name="Email" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <input class="input" type="text" name="Address" placeholder="Địa chỉ">
+        </div>
+        <div class="form-group">
+            <input class="input" type="tel" name="Phone" placeholder="Số điện thoại">
+        </div>
+        <div class="form-group">
+            <div class="input-checkbox">
+                <input type="checkbox" id="create-account">
+                <label for="create-account">
+                    <span></span>
+                    Bạn có muốn tạo tài khoản?
+                </label>
+                <div class="caption">
+                    <p> Vui lòng nhập mật khẩu để đăng ký tài khoản.</p>
+                    <input class="input" type="password" name="password" placeholder="Nhập mật khẩu" s>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="order-notes">
+        <textarea class="input" placeholder="Ghi chú"></textarea>
+    </div>
+    <div class="payment-method">
+        <div class="input-checkbox">
+            <input type="checkbox" value="1" name="Payment" id="payment-1" checked>
+            <label for="payment-1">
+                <span></span>
+                Thanh toán tiền mặt
+            </label>
+            <div class="caption">
+                <p>Vui lòng gửi tiền thông qua shipper sau khi nhận được hàng.</p>
+            </div>
+        </div>
+        <div class="input-checkbox">
+            <input type="checkbox" name="Payment" id="payment-2" value="2">
+            <label for="payment-2">
+                <span></span>
+                Chuyển khoản
+            </label>
+            <div class="caption">
+                <h4> <label>Chọn phương thức thanh toán:</label><br /></h4>
+                <h5>Cách 1: Chuyển hướng sang VNPAY chọn phương thức thanh toán</h5>
+                <label><input type="radio" name="TypePaymentVN" value="0" checked /> Cổng thanh toán VNPAYQR </label>
+                <h5>Cách 2: Tách phương thức thanh toán tại site của Merchant</h5>
+                <label><input type="radio" name="TypePaymentVN" value="1" /> Thanh toán qua ứng dụng hỗ trợ VNPAYQR </label><br />
+                <label><input type="radio" name="TypePaymentVN" value="2" /> ATM-Tài khoản ngân hàng nội địa </label><br />
+                <label><input type="radio" name="TypePaymentVN" value="3" /> Thanh toán qua thẻ quốc tế </label><br />
+            </div>
+        </div>
+    </div>
+    <div class="input-checkbox">
+        <input type="checkbox" id="terms">
+        <label for="terms">
+            <span></span>
+            Tôi đã đọc và chấp nhận <a href="#">điều khoản sử dụng</a>
+        </label>
+    </div>
+    <div class="form-group" id="load_send"></div>
+    <button type="submit" class="primary-btn order-submit" id="btnCheckOut">
+        Đặt hàng
+    </button>
+}
+<script>
+    $("input:checkbox").on('click', function () {
+        // in the handler, 'this' refers to the box clicked on
+        var $box = $(this);
+        if ($box.is(":checked")) {
+            // the name of the box is retrieved using the .attr() method
+            // as it is assumed and expected to be immutable
+            var group = "input:checkbox[name='" + $box.attr("name") + "']";
+            // the checked state of the group/box on the other hand will change
+            // and the current value is retrieved using .prop() method
+            $(group).prop("checked", false);
+            $box.prop("checked", true);
+        } else {
+            $box.prop("checked", false);
+        }
+    });
+</script>

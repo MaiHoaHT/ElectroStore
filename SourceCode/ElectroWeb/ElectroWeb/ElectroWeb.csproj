@@ -194,6 +194,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -206,7 +207,8 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Common\FomatPath.cs" />
-    <Compile Include="Models\CustomerInfo.cs" />
+    <Compile Include="Models\Common\SendContact.cs" />
+    <Compile Include="Models\OrderInfoViewModel.cs" />
     <Compile Include="Models\EntityFramework\Adv.cs" />
     <Compile Include="Models\EntityFramework\Contact.cs" />
     <Compile Include="Models\EntityFramework\GeneralDataAbstract.cs" />
@@ -3091,6 +3093,8 @@
     <Content Include="Content\Contacts\js\main2.js" />
     <Content Include="Content\Contacts\js\popper.js" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\templates\send1.html" />
+    <Content Include="Content\templates\send2.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -3335,6 +3339,7 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -3396,6 +3401,9 @@
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cart\CheckOut.cshtml" />
     <Content Include="Views\Cart\Show_Checkout_Items.cshtml" />
+    <Content Include="Views\Cart\Checkout_OrderInfor.cshtml" />
+    <Content Include="Views\Cart\CheckOutSuccess.cshtml" />
+    <Content Include="Views\Post\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,7 +1,6 @@
 ﻿$(document).ready(function () {
     ShowCountNum();
     $('body').on('click', '.btnAddToCart', function (e) {
-        debugger;
         e.preventDefault();
         var id = $(this).data('id');
         var quatity = 1;

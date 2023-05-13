@@ -1,17 +1,24 @@
 ﻿
 @{
-    Layout = null;
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <div> 
+<div id="breadcrumb" class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="breadcrumb-header">Tin tức</h3>
+                <ul class="breadcrumb-tree">
+                    <li><a href="/">Trang chủ</a></li>
+                    <li class="active">Trang tin tức</li>
+                </ul>
+            </div>
+        </div>
+        <!-- /row -->
     </div>
-</body>
-</html>
+    <!-- /container -->
+</div>
+<!-- /BREADCRUMB -->
