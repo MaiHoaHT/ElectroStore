@@ -23,6 +23,16 @@ namespace ElectroWeb.Controllers
             var menuItems = dbContext.Menus.OrderBy(x => x.Position).ToList();
             return PartialView("_MenuTop", menuItems);
         }
+        public ActionResult MenuLeft(int? id)
+        {
+            if (id != null)
+            {
+                ViewBag.CateId = id;
+            }
+            // Get menu - order by position
+            var menuItems = dbContext.ProductCategories.OrderBy(x => x.Id).ToList();
+            return PartialView("_MenuLeft", menuItems);
+        }
 
         // Menu Product Category
         public ActionResult MenuProductCategory()

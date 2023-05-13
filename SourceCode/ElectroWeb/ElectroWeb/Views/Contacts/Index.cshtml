@@ -3,7 +3,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayouEmpty.cshtml";
 }
-<link rel="stylesheet" href="~/Content/assets/css/style2.css">
+@*<link rel="stylesheet" href="~/Content/Contacts/css/style2.css">*@
 
 <section class="ftco-section">
     <div class="container">
@@ -64,25 +64,25 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="label" for="name">Họ và tên</label>
+                                                <label class="label">Họ và tên</label>
                                                 <input type="text" class="form-control" name="name" id="name" placeholder="Tên">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="label" for="email">Địa chỉ email</label>
+                                                <label class="label">Địa chỉ email</label>
                                                 <input type="email" class="form-control" name="email" id="email" placeholder="Email">
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label class="label" for="subject">Tiêu đề</label>
+                                                <label class="label">Tiêu đề</label>
                                                 <input type="text" class="form-control" name="subject" id="subject" placeholder="Tiêu đề">
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label class="label" for="#">Nội dung</label>
+                                                <label class="label">Nội dung</label>
                                                 <textarea name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Nội dung"></textarea>
                                             </div>
                                         </div>
@@ -96,10 +96,10 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="col-md-5 d-flex align-items-stretch">
+                        @*<div class="col-md-5 d-flex align-items-stretch">
                             <div class="info-wrap w-100 p-5 img" style="background-image: url(images/img.jpg);">
                             </div>
-                        </div>
+                        </div>*@
                     </div>
                 </div>
             </div>
@@ -107,11 +107,11 @@
     </div>
 </section>
 @section scripts{
-    <script src="~/Content/assets/js/jquery.min.js"></script>
-    <script src="~/Content/assets/js/popper.js"></script>
-    <script src="~/Content/assets/js/bootstrap.min.js"></script>
-    <script src="~/Content/assets/js/jquery.validate.min.js"></script>
-    <script src="~/Content/assets/js/main2.js"></script>
+    <script src="~/Content/Contacts/js/jquery.min.js"></script>
+    <script src="~/Content/Contacts/js/popper.js"></script>
+    <script src="~/Content/Contacts/js/bootstrap.min.js"></script>
+    <script src="~/Content/Contacts/js/jquery.validate.min.js"></script>
+    <script src="~/Content/Contacts/js/main2.js"></script>
 
 }
 

@@ -31,10 +31,10 @@
                             @foreach (var item in Model)
                             {
                                 <div id="sale_@item.Alias" class="tab-pane">
-                                    <div class="products-slick" data-nav="#slick-nav-2">
+                                    <div class="products-slick" data-nav="#slick-sale-@item.Alias">
                                         @Html.Action("ProductItemsSaleByCateID", "Product", new { alias = item.Alias })
                                     </div>
-                                    <div id="slick-nav-2" class="products-slick-nav"></div>
+                                    <div id="slick-sale-@item.Alias" class="products-slick-nav"></div>
                                 </div>
                             }
                         </div>

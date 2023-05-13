@@ -188,6 +188,7 @@
     <Compile Include="Areas\admin\Controllers\ProductImageController.cs" />
     <Compile Include="Areas\admin\Controllers\ProductsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -203,7 +204,9 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Common\FomatPath.cs" />
+    <Compile Include="Models\CustomerInfo.cs" />
     <Compile Include="Models\EntityFramework\Adv.cs" />
     <Compile Include="Models\EntityFramework\Contact.cs" />
     <Compile Include="Models\EntityFramework\GeneralDataAbstract.cs" />
@@ -241,6 +244,7 @@
     <Content Include="Content\assets\css\bootstrap-theme.min.css" />
     <Content Include="Content\assets\css\bootstrap.css" />
     <Content Include="Content\assets\css\bootstrap.min.css" />
+    <Content Include="Content\assets\css\cart.css" />
     <Content Include="Content\assets\css\font-awesome.min.css" />
     <Content Include="Content\assets\css\nouislider.min.css" />
     <Content Include="Content\assets\css\slick-theme.css" />
@@ -3336,6 +3340,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\ShoppingCartJS.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -3371,8 +3376,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
-    <Content Include="Views\Products\_ListLaptop.cshtml" />
-    <Content Include="Views\Products\_ProductDetail.cshtml" />
     <Content Include="Views\Users\CheckOut.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -3386,6 +3389,13 @@
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Shared\_LayouEmpty.cshtml" />
     <Content Include="Views\Contacts\Index.cshtml" />
+    <Content Include="Views\Menu\_MenuLeft.cshtml" />
+    <Content Include="Views\Product\ProductsByCategory.cshtml" />
+    <Content Include="Views\Product\ProductDetail.cshtml" />
+    <Content Include="Views\Cart\Show_Cart_Items.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Cart\CheckOut.cshtml" />
+    <Content Include="Views\Cart\Show_Checkout_Items.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

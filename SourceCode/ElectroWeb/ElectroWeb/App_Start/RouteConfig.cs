@@ -19,6 +19,18 @@ namespace ElectroWeb
                 namespaces: new[] { "ElectroWeb.Controllers" }
             );
             routes.MapRoute(
+                name: "ProductCategory",
+                url: "danh-muc/{alias}-{id}",
+                defaults: new { controller = "Product", action = "ProductsByCategory", id = UrlParameter.Optional },
+                namespaces: new[] { "ElectroWeb.Controllers" }
+            );
+            routes.MapRoute(
+                name: "DetailProduct",
+                url: "chi-tiet-san-pham/{alias}-prod{id}",
+                defaults: new { controller = "Product", action = "ProductDetail", alias = UrlParameter.Optional },
+                namespaces: new[] { "ElectroWeb.Controllers" }
+            );
+            routes.MapRoute(
                 name: "Home",
                 url: "trang-chu",
                 defaults: new { controller = "Home", action = "Index", alias = UrlParameter.Optional },
@@ -30,6 +42,18 @@ namespace ElectroWeb
                 defaults: new { controller = "Contacts", action = "Index", alias = UrlParameter.Optional },
                 namespaces: new[] { "ElectroWeb.Controllers" }
             );
+            routes.MapRoute(
+                 name: "Cart",
+                 url: "gio-hang",
+                 defaults: new { controller = "Cart", action = "Index", alias = UrlParameter.Optional },
+                 namespaces: new[] { "ElectroWeb.Controllers" }
+             );
+            routes.MapRoute(
+                 name: "Checkout",
+                 url: "thanh-toan",
+                 defaults: new { controller = "Cart", action = "Checkout", alias = UrlParameter.Optional },
+                 namespaces: new[] { "ElectroWeb.Controllers" }
+             );
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

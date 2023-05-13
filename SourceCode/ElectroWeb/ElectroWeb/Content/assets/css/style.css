@@ -2190,11 +2190,127 @@ textarea.input {
   margin: 15px 0px;
 }
 
+#contactForm .error {
+    color: red;
+    font-size: 12px;
+}
+.dbox {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+@media (max-width: 767.98px) {
+    .dbox {
+        margin-bottom: 25px !important;
+        padding: 0 20px;
+    }
+}
+
+.dbox p {
+    margin-bottom: 0;
+}
+
+    .dbox p span {
+        font-weight: 500;
+        color: #000;
+    }
+
+    .dbox p a {
+        color: #46b5d1;
+    }
+
+.dbox .icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #D10024;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+    .dbox .icon span {
+        font-size: 20px;
+        color: #fff;
+    }
+
+.dbox .text {
+    width: 100%;
+}
+.ftco-section {
+    padding: 7em 0;
+}
+.d-flex {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+}
+.align-items-center {
+    -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+}
+.justify-content-center {
+    -webkit-box-pack: center !important;
+    -ms-flex-pack: center !important;
+    justify-content: center !important;
+}
+#form-message-warning, #form-message-success {
+    display: none;
+}
+
+#form-message-warning {
+    color: red;
+}
+
+#form-message-success {
+    color: #28a745;
+    font-size: 18px;
+    font-weight: 500;
+}
+.btn-danger {
+    background: #D10024 !important;
+}
+
+.sidebar_categories li.active a {
+    color: #D10024;
+}
+
+.sidebar_categories li.active:hover a {
+    color: #D10024;
+}
+
+.sidebar_categories li a {
+    font-size: 14px;
+    line-height: 40px;
+    color: #51545f;
+}
+
+    .sidebar_categories li a:hover {
+        color: #b5aec4;
+    }
+
+    .sidebar_categories li a span {
+        margin-right: 5px;
+    }
+
+.notification {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    padding: 15px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 14px;
+    border-radius: 6px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
 /*=========================================================
 	13 -> RESPONSIVE
 ===========================================================*/
-
-@media only screen and (max-width: 1201px) {}
+@media only screen and (max-width: 1201px) {
+}
 
 @media only screen and (max-width: 991px) {
   #top-header .header-links.pull-left {

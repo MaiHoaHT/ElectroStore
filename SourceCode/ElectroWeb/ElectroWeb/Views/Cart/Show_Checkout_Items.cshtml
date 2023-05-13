@@ -1,0 +1,23 @@
+﻿@model IEnumerable<ElectroWeb.Models.CartItems>
+@if (Model != null && Model.Any())
+{
+    var tongtien = decimal.Zero;
+    foreach (var item in Model)
+    {
+        tongtien += item.TotalPrice;
+        <div class="order-products">
+            <div class="order-col">
+                <div>@item.Quantity x @item.ProductName</div>
+                <div>@ElectroWeb.Models.Common.FomatPath.FormatNumber(item.TotalPrice, 0)</div>
+            </div>
+        </div>
+    }
+    <div class="order-col">
+        <div>Vận chuyển</div>
+        <div><strong>FREE</strong></div>
+    </div>
+    <div class="order-col">
+        <div><strong>TỔNG</strong></div>
+        <div><strong class="order-total">@ElectroWeb.Models.Common.FomatPath.FormatNumber(tongtien, 0)</strong></div>
+    </div>
+}

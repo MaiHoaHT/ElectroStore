@@ -1,20 +1,24 @@
 ﻿@model IEnumerable<ElectroWeb.Models.EntityFramework.Menu>
-<ul class="main-nav nav navbar-nav">
-    @if (Model != null && Model.Any())
+@{
+    string rootPath = Context.Request.Path;
+}
+@if (Model != null && Model.Any())
     {
         foreach (var menu in Model)
         {
-            if (menu.Position == 1)
+            var aliaspath = "/" + menu.Alias;
+            //if (menu.Position == 1)
+            if (rootPath == aliaspath)
             {
-                <li class="active"><a href="@menu.Alias">@menu.Title</a></li>
+                <li class="active"><a href="/@menu.Alias">@menu.Title</a></li>
             }
             else
             {
-                <li><a href="@menu.Alias">@menu.Title</a></li>
+                <li><a href="/@menu.Alias">@menu.Title</a></li>
             }
         }
     }
-</ul>
+
 @*<li class="active"><a href="#">Trang chủ</a></li>
     <li><a href="#">Hot Deals</a></li>
     <li><a href="#">Laptop </a></li>

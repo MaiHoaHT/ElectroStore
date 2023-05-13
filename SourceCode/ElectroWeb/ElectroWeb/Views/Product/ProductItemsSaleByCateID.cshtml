@@ -11,61 +11,59 @@
             strImage = img.Image;
         }
         <!-- product -->
-        <div class="product">
-            <div class="product-img">
-                <img src="@strImage" alt="@item.Name">
-                <div class="product-label">
-                    @if (item.PriceSale > 0)
-                    {
-                        //<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>sale</span></div>
-                        <span class="sale">SALE</span>
-                    }
-                    @{
-                        DateTime currentDate = item.CreateDate;
-                        DateTime compareDate = DateTime.Now.AddDays(-30);
-                    }
-                    @if (currentDate > compareDate)
-                    {
-                        <span class="new">NEW</span>
-                    }
-                </div>
+        <div class="col-md-3 col-xs-6">
+            <div class="product">
+             <div class="product-img">
+            <img src="@strImage" alt="@item.Name">
+            <div class="product-label">
+                @if (item.PriceSale > 0)
+                {
+                    //<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>sale</span></div>
+                    <span class="sale">SALE</span>
+                }
+                @{
+                    DateTime currentDate = item.CreateDate;
+                    DateTime compareDate = DateTime.Now.AddDays(-30);
+                }
+                @if (currentDate > compareDate)
+                {
+                    <span class="new">NEW</span>
+                }
             </div>
-            <div class="product-body">
-                <p class="product-category">@item.ProductCategory.Title</p>
-                <h3 class="product-name"><a href="Products/_ProductDetail">@item.Name</a></h3>
-                <h4 class="product-price">
-                    @if (item.PriceSale > 0)
-                    {
-                        @ElectroWeb.Models.Common.FomatPath.FormatNumber(item.PriceSale, 0) <del class="product-old-price">@ElectroWeb.Models.Common.FomatPath.FormatNumber(item.Price, 0)</del>
-                    }
-                    else
-                    {
-                        @ElectroWeb.Models.Common.FomatPath.FormatNumber(item.Price, 0)
-                    }
-                </h4>
-                <div class="product-rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>
-                <div class="product-btns">
-                    <button class="add-to-wishlist">
-                        <i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span>
-                    </button>
-                    <button class="quick-view">
-                        <i class="fa fa-eye"></i><span class="tooltipp">quick view</span>
-                    </button>
-                </div>
+        </div>
+        <div class="product-body">
+            <p class="product-category">@item.ProductCategory.Title</p>
+            <h3 class="product-name"><a href="/chi-tiet-san-pham/@item.Alias-prod@(item.Id)">@item.Name</a></h3>
+            <h4 class="product-price">
+                @if (item.PriceSale > 0)
+                {
+                    @ElectroWeb.Models.Common.FomatPath.FormatNumber(item.PriceSale, 0) <del class="product-old-price">@ElectroWeb.Models.Common.FomatPath.FormatNumber(item.Price, 0)</del>
+                }
+                else
+                {
+                    @ElectroWeb.Models.Common.FomatPath.FormatNumber(item.Price, 0)
+                }
+            </h4>
+            <div class="product-rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
             </div>
-            <div class="add-to-cart">
-                <button class="add-to-cart-btn">
-                    <i class="fa fa-shopping-cart"></i> thêm vào giỏ
+            <div class="product-btns">
+                <button class="add-to-wishlist">
+                    <i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span>
                 </button>
             </div>
+        </div>
+        <div class="add-to-cart">
+            <button class="add-to-cart-btn btnAddToCart" data-id="@item.Id">
+                <i class="fa fa-shopping-cart"></i> thêm vào giỏ
+            </button>
+        </div>
     </div>
-        <!-- /product -->
-
+            </div>
+    <!-- /product -->
     }
-}
+    }

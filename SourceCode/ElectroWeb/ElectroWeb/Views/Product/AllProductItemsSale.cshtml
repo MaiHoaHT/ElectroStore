@@ -17,7 +17,7 @@
             </div>
             <div class="product-body">
                 <p class="product-category">@item.ProductCategory.Title</p>
-                <h3 class="product-name"><a href="#">@item.Name</a></h3>
+                <h3 class="product-name"><a href="/chi-tiet-san-pham/@item.Alias-prod@(item.Id)">@item.Name</a></h3>
                 <h4 class="product-price">
                     @ElectroWeb.Models.Common.FomatPath.FormatNumber(item.PriceSale, 0) <del class="product-old-price">@ElectroWeb.Models.Common.FomatPath.FormatNumber(item.Price, 0)</del>
                 </h4>

@@ -1,0 +1,16 @@
+﻿@model IEnumerable<ElectroWeb.Models.EntityFramework.ProductCategory>
+
+    @if (Model != null && Model.Any())
+    {
+        foreach (var cate in Model)
+        {
+            if (ViewBag.CateId == cate.Id)
+            {
+                <li class="active"><a href="/danh-muc/@cate.Alias-@cate.Id">@cate.Title<small></small></a></li>
+            }
+            else
+            {
+                <li><a href="/danh-muc/@cate.Alias-@cate.Id">@cate.Title<small></small></a></li>
+            }
+        }
+    }

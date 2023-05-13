@@ -18,32 +18,32 @@
                     <ul class="hot-deal-countdown">
                         <li>
                             <div>
-                                <h3>02</h3>
-                                <span>Days</span>
+                                <h3 id="dayCountdown"></h3>
+                                <span>Ngày</span>
                             </div>
                         </li>
                         <li>
                             <div>
-                                <h3>10</h3>
-                                <span>Hours</span>
+                                <h3 id="hourCountdown"></h3>
+                                <span>Giờ</span>
                             </div>
                         </li>
                         <li>
                             <div>
-                                <h3>34</h3>
-                                <span>Mins</span>
+                                <h3 id="minsCountdown"></h3>
+                                <span>Phút</span>
                             </div>
                         </li>
                         <li>
                             <div>
-                                <h3>60</h3>
-                                <span>Secs</span>
+                                <h3 id="secsCountdown"></h3>
+                                <span>Giây</span>
                             </div>
                         </li>
                     </ul>
                     <h2 class="text-uppercase">Deal sốc trong tuần</h2>
                     <p>Bộ sưu tập ưu đãi 50%</p>
-                    <a class="primary-btn cta-btn" href="#">Mua ngay</a>
+                    <a class="primary-btn cta-btn" href="/san-pham">Mua ngay</a>
                 </div>
             </div>
         </div>
@@ -124,3 +124,29 @@
 </div>
 <!-- /SECTION -->
 <!-- NEWSLETTER -->
+<script>
+    function countdown() {
+        debugger;
+        var endDate = new Date("May 31, 2023 00:00:00").getTime(); // Đặt ngày kết thúc đếm ngược ở đây
+        var now = new Date().getTime();
+        var distance = endDate - now;
+
+        // Tính toán các thành phần của thời gian còn lại
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Hiển thị kết quả trong một phần tử có id "countdown"
+        document.getElementById("dayCountdown").innerHTML = days;
+        document.getElementById("hourCountdown").innerHTML = hours;
+        document.getElementById("minsCountdown").innerHTML = minutes;
+        document.getElementById("secsCountdown").innerHTML = seconds;
+
+        // Đặt lại hàm này để cập nhật đếm ngược mỗi giây
+        setTimeout(countdown, 1000);
+    }
+
+    // Gọi hàm countdown để bắt đầu đếm ngược
+    countdown();
+</script>

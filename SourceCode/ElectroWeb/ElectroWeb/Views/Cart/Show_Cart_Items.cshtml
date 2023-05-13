@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ElectroWeb.Models.CartItems>
+<table class="table">
+    <tr class="text-center">
+        <th class="text-center">STT</th>
+        <th class="text-center">Ảnh sản phẩm</th>
+        <th class="text-center">Tên sản phẩm</th>
+        <th class="text-center">Danh mục</th>
+        <th class="text-center">Giá</th>
+        <th class="text-center" style="width:100px;">Số lượng</th>
+        <th class="text-center">Thành tiền</th>
+        <th class="text-center">Thao tác</th>
+    </tr>
+    @if (Model != null && Model.Any())
+    {
+        var i = 0;
+        var tongtien = decimal.Zero;
+        foreach (var item in Model)
+        {
+            tongtien += item.TotalPrice;
+            <tr class="text-center" id="trow_@item.ProductId">
+                <td>@(i+1)</td>
+                <td><img src="@item.ProductImg" width="60" /></td>
+                <td>
+                    <a href="/chi-tiet-san-pham/@item.Alias-prod@(item.ProductId)">
+                        @item.ProductName
+                    </a>
+                </td>
+                <td>@item.CategoryName</td>
+                <td class="text-center">@ElectroWeb.Models.Common.FomatPath.FormatNumber(item.Price, 0) đ</td>
+                <td><input type="number" name="quantity" data-id="@item.ProductId" class="form-control text-center" id="Quantity_@item.ProductId" value="@item.Quantity" /></td>
+                <th class="text-center">@ElectroWeb.Models.Common.FomatPath.FormatNumber(item.TotalPrice, 2) đ</th>
+                <td>
+                    <a href="#" data-id="@item.ProductId" class="btn-lg btnDelete"><i class='fa fa-trash text-danger'></i></a>
+                </td>
+            </tr>
+            i++;
+        }
+        <tr>
+            <th colspan="6" class="text-right"> <h4>Tổng giá:</h4> </th>
+            <th> <h4>@ElectroWeb.Models.Common.FomatPath.FormatNumber(tongtien, 0) VND </h4></th>
+            <th></th>
+        </tr>
+
+    }
+    else
+    {
+        <tr>
+            <th colspan="7">Không có sản phẩm trong giỏ hàng!!</th>
+        </tr>
+    }
+</table>
