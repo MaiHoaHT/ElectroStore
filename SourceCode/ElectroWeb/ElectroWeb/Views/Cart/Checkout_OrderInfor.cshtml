@@ -12,8 +12,23 @@
         function OnBeginCO() {
             $('#btnCheckOut').attr("disabled", "disabled");
             $('#load_send').html('<h2>Đang gửi....</h2>');
+            OnSuccessCO2();
+            $.ajax({
+                url: '/cart/DeleteAll',
+                type: 'POST',
+                success: function (rs) {
+                    if (rs.Success) {
+                        LoadCart();
+                    }
+                }
+            });
         }
         debugger;
+        function OnSuccessCO2() {
+            debugger;
+            location.href = "/Cart/CheckOutSuccess";
+        }
+        
         function OnSuccessCO(res) {
             debugger;
             if (res.Success) {
@@ -100,6 +115,9 @@
         </label>
     </div>
     <div class="form-group" id="load_send"></div>
+    <a>
+
+    </a>
     <button type="submit" class="primary-btn order-submit" id="btnCheckOut">
         Đặt hàng
     </button>

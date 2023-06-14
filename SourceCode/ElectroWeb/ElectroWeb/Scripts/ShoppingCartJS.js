@@ -50,7 +50,8 @@
         }
 
     });
-    $('body').on('change', 'input[name = quantity]', function () {
+    $('body').on('change', 'input[name = idquantity]', function () {
+        debugger;
         var btn = $(this);
         var id = btn.data('id'); // Lấy id của bản ghi tương ứng
         var value = btn.val();
@@ -71,8 +72,6 @@
         Update(id, value);
     });
 });
-
-
 
 function ShowCountNum() {
     $.ajax({

@@ -27,7 +27,7 @@
                 </td>
                 <td>@item.CategoryName</td>
                 <td class="text-center">@ElectroWeb.Models.Common.FomatPath.FormatNumber(item.Price, 0) đ</td>
-                <td><input type="number" name="quantity" data-id="@item.ProductId" class="form-control text-center" id="Quantity_@item.ProductId" value="@item.Quantity" /></td>
+                <td><input type="number" name="idquantity" data-id="@item.ProductId" class="form-control text-center" id="Quantity_@item.ProductId" value="@item.Quantity" /></td>
                 <th class="text-center">@ElectroWeb.Models.Common.FomatPath.FormatNumber(item.TotalPrice, 2) đ</th>
                 <td>
                     <a href="#" data-id="@item.ProductId" class="btn-lg btnDelete"><i class='fa fa-trash text-danger'></i></a>
